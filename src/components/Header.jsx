@@ -1,7 +1,10 @@
-import {useState} from 'react';
 import useResumeUI from '../hooks/resumeHooks.js';
+import { useContext } from 'react';
+import { UIContext } from '../components/UIContext.jsx';
+
 function Header() {
-    const {user, hideUI, itemColor, handleColorChange, handleHideUI} = useResumeUI();
+    const {user, itemColor, handleColorChange} = useResumeUI();
+    const {hideUI,handleHideUI} = useContext(UIContext);
 
     return (
         <div id='headerContainer' style={{
@@ -24,12 +27,11 @@ function Header() {
                 <h1 id="resumeTitle" contentEditable='true' style={{color:itemColor}}>{user.name} Resume</h1>
                 <div id="titleColorSelector" className='uiElement' style={{
                     alignSelf:'flex-end',
-                    margin:'0', 
-                    padding:'0',
-                    display:hideUI
+                    display:hideUI,
+                    flexDirection:'column'
                 }}>
                     <input type="color" id="colorSelector" name="colorSelector" onChange={handleColorChange}/>
-                    <label htmlFor="colorSelector" style={{fontWeight:'800'}}>Choose Color</label>
+                    <label htmlFor="colorSelector" style={{fontWeight:'800', display:'block'}}>Choose Color</label>
                 </div>
             </div>
 
