@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { UIContext } from '../components/UIContext.jsx';
 
 function Header() {
-    const {user, itemColor, handleColorChange} = useResumeUI();
-    const {hideUI,handleHideUI} = useContext(UIContext);
+    const {itemColor, handleColorChange} = useResumeUI();
+    const {hideUI,handleHideUI, user} = useContext(UIContext);
 
     return (
         <div id='headerContainer' style={{
@@ -25,13 +25,20 @@ function Header() {
             }}>
                 <button id='hideUIButton' className='uiElement' style={{display:hideUI}} onClick={handleHideUI}>Hide UI</button>
                 <h1 id="resumeTitle" contentEditable='true' style={{color:itemColor}}>{user.name} Resume</h1>
-                <div id="titleColorSelector" className='uiElement' style={{
+                <div id="titleColorSelectorHideContainer" className='uiElement' style={{
                     alignSelf:'flex-end',
                     display:hideUI,
-                    flexDirection:'column'
+                    justifySelf:'center'
                 }}>
-                    <input type="color" id="colorSelector" name="colorSelector" onChange={handleColorChange}/>
-                    <label htmlFor="colorSelector" style={{fontWeight:'800', display:'block'}}>Choose Color</label>
+                    <div id="titleColorSelectorContainer" style={{
+                        display:'flex',
+                        flexDirection:'column',
+                        justifyContent:'center',
+                        alignItems:'center'
+                    }}>
+                        <input type="color" id="colorSelector" name="colorSelector" onChange={handleColorChange}/>
+                        <label htmlFor="colorSelector" style={{fontWeight:'800', display:'block '}}>Choose Color</label>
+                    </div>
                 </div>
             </div>
 

@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import  useResumeUI from '../hooks/resumeHooks.js';
 
 function Experience() {
-    const {user, hideUI, itemColor, handleColorChange, handleHideUI} = useResumeUI();
+    const {itemColor, handleColorChange} = useResumeUI();
+    // const {user, handleHideUI, hideUI} = useContext(UIContext);
+
 
     return (
         <div id="experienceContainer">
-            
+
         </div>
     )
 }

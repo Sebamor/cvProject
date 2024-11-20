@@ -4,16 +4,11 @@ import useResumeUI from "../hooks/resumeHooks.js";
 const UIContext = createContext();
 
 const UIProvider = ({children}) => {
-    const {hideUI, handleHideUI} = useResumeUI();
+    const {hideUI, handleHideUI, user, handleUserInfo} = useResumeUI();
     
-    // // Function to hide UI when user is ready to save resume
-    // const [hideUI, setHideUI] = useState('show');
-    // function handleHideUI() {
-    //     hideUI === 'none' ? setHideUI('show') : setHideUI('none')
-    // }
 
     return (
-        <UIContext.Provider value={{hideUI, handleHideUI}}>
+        <UIContext.Provider value={{hideUI, handleHideUI, handleUserInfo, user}}>
             {children}
         </UIContext.Provider>
     )
