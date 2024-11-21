@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 const useResumeUI = () => {
-    // TODO build user to change resume when prompt shows up
+    // Function to set user info
     const [user, setUser] = useState({
         name: 'John Smith', 
         email: 'johnSmith@email.com', 
@@ -25,9 +25,15 @@ const useResumeUI = () => {
     }
 
     // Function to change font colors
-    const [itemColor, setItemColor] = useState('black');
-    function handleColorChange(e) {
-        setItemColor(e.target.value)
+    const [itemColor, setItemColor] = useState({
+        header: 'black',
+        summary: 'black',
+        hInfo: 'black',
+    });
+    function handleColorChange(section, e) {
+        const newColors = {...itemColor};
+        newColors[section] = e.target.value;
+        setItemColor(newColors);
     }
 
     return {
