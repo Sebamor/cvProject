@@ -36,6 +36,19 @@ const useResumeUI = () => {
         setItemColor(newColors);
     }
 
+    // Function to change font
+    const [fontSize, setFontSize] = useState({
+        header: '52px',
+        summary: '16px',
+        hInfo: '16px',
+    })
+    function handleFontChange(section) {
+        const newFonts = {...fontSize};
+        newFonts[section] = prompt('Enter font size', '16');
+        newFonts[section] = `${newFonts[section]}px`;
+        setFontSize(newFonts);
+    }
+
     return {
         user,
         setUser,
@@ -43,6 +56,9 @@ const useResumeUI = () => {
         setHideUI,
         itemColor,
         setItemColor,
+        fontSize,
+        setFontSize,
+        handleFontChange,
         handleHideUI,
         handleColorChange,
         handleUserInfo,
