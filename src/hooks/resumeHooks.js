@@ -29,6 +29,7 @@ const useResumeUI = () => {
         header: 'black',
         summary: 'black',
         hInfo: 'black',
+        expHeader: 'black',
     });
     function handleColorChange(section, e) {
         const newColors = {...itemColor};
@@ -41,6 +42,7 @@ const useResumeUI = () => {
         header: '52px',
         summary: '16px',
         hInfo: '16px',
+        expHeader: '28px',
     })
     function handleFontChange(section) {
         const newFonts = {...fontSize};

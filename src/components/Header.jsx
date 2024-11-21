@@ -26,7 +26,7 @@ function Header() {
                 width:'100vw'
             }}>
 
-                <button id='hideUIButton' className='uiElement' style={{display:hideUI}} onClick={() => handleFontChange('header')}>Font Size</button>
+                <button className='hideUIButton' style={{display:hideUI}} onClick={() => handleFontChange('header')}>Font Size</button>
 
                 <h1 id="resumeTitle" contentEditable='true' style={{color:itemColor.header, fontSize:fontSize.header}}>{user.name} Resume</h1>
 
@@ -51,7 +51,7 @@ function Header() {
                 paddingBottom:'10px'
             }}>
 
-<button id='hideUIButton' className='uiElement' style={{display:hideUI}} onClick={() => handleFontChange('hInfo')}>Font Size</button>
+                <button className='hideUIButton' style={{display:hideUI}} onClick={() => handleFontChange('hInfo')}>Font Size</button>
 
                 <div id="headerInfo" style={{
                     display:'flex', 
@@ -89,7 +89,7 @@ function Header() {
                 paddingBottom:'10px',
             }}>
 
-<button id='hideUIButton' className='uiElement' style={{display:hideUI}} onClick={() => handleFontChange('summary')}>Font Size</button>
+                <button className='hideUIButton' style={{display:hideUI}} onClick={() => handleFontChange('summary')}>Font Size</button>
 
                 <div id="summaryInfo" contentEditable='true' style={{color:itemColor.summary, fontSize:fontSize.summary}}>
                     {user.summary}
