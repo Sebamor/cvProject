@@ -1,11 +1,10 @@
 import useResumeUI from '../hooks/resumeHooks.js';
 import { useContext } from 'react';
 import { UIContext } from '../components/UIContext.jsx';
-import useState from 'react';
 
 function AddItems() {
     const {hideUI} = useContext(UIContext);
-    const {jobTitle, jobDescription, items, handleJobTitleChange, handleJobDescriptionChange, handleAddItem, handleDeleteItem, jobRole, jobDate, jobLocation, handleJobDateChange, handleJobLocationChange, handleJobRoleChange} = useResumeUI();
+    const {jobTitle, jobDescription, items,fontSize,itemColor, handleJobTitleChange, handleJobDescriptionChange, handleAddItem, handleDeleteItem, jobRole, jobDate, jobLocation, handleJobDateChange, handleJobLocationChange, handleJobRoleChange, handleFontChange, handleColorChange} = useResumeUI();
 
     return(
         <div style={{width:'100%'}}>
@@ -58,10 +57,21 @@ function AddItems() {
             <div id="addItemButton" style={{display:hideUI}}>
                 <button onClick={handleAddItem} style={{display:hideUI,}}>Add Job</button>
             </div>
+            <div id="experienceFontColor" style={{display:'flex', justifyContent:'flex-end', alignItems:'center', gap:'20px'}}>
+                    <button className='hideUIButton' style={{display:hideUI}} onClick={() => handleFontChange('hInfo')}>Font Size</button>
+                    <div className="titleColorSelectorHideContainer" style={{display:hideUI}}>
+                    <div className='titleColorSelectorContainer'>
+                        <input type="color" id="colorSelector" name="colorSelector" onChange={(e) => handleColorChange('hInfo', e)}/>
+                        <label htmlFor="colorSelector" style={{fontWeight:'800', display:'block '}}>Choose Color</label>
+                    </div>
+                    </div>
+                </div>
             <ul>
                 {items.map(item => (
                     <li key={item.id} style={{
                         listStyle:'none',
+                        color:itemColor.hInfo, 
+                        fontSize:fontSize.hInfo
                     }}>
                         <div id="titleAndLocation" style={{display:'flex', justifyContent:'space-between'}}>
                             <p><strong>{item.title}</strong></p>
