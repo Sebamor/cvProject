@@ -5,7 +5,7 @@ import useState from 'react';
 
 function AddItems() {
     const {hideUI} = useContext(UIContext);
-    const {setItems, jobTitle, jobDescription, items, handleJobTitleChange, handleJobDescriptionChange, handleAddItem, handleDeleteItem, jobRole, jobDate, jobLocation, handleJobDateChange, handleJobLocationChange, handleJobRoleChange} = useResumeUI();
+    const {jobTitle, jobDescription, items, handleJobTitleChange, handleJobDescriptionChange, handleAddItem, handleDeleteItem, jobRole, jobDate, jobLocation, handleJobDateChange, handleJobLocationChange, handleJobRoleChange} = useResumeUI();
 
     return(
         <div style={{width:'100%'}}>
@@ -55,8 +55,8 @@ function AddItems() {
                     display:hideUI,
                 }}></textarea>
             </div>
-            <div id="addItemButton">
-                <button onClick={handleAddItem} style={{display:hideUI}}>Add Job</button>
+            <div id="addItemButton" style={{display:hideUI}}>
+                <button onClick={handleAddItem} style={{display:hideUI,}}>Add Job</button>
             </div>
             <ul>
                 {items.map(item => (

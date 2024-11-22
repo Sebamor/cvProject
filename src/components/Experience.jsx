@@ -40,7 +40,6 @@ function Experience() {
                         gap:'20px',
                     }}>
                         <button className='hideUIButton' style={{display:hideUI}} onClick={() => handleFontChange('expHeader')}>Font Size</button>
-
                         <div className="titleColorSelectorHideContainer" style={{display:hideUI}}>
                             <div className='titleColorSelectorContainer'>
                                 <div className="titleColorSelectorContainer">

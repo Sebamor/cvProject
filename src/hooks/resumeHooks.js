@@ -102,8 +102,51 @@ const useResumeUI = () => {
         setItems(items.filter(item => item.id !== id));
     }
     
+    // Function to add Education
+    const [collegeInfo, setCollegeInfo] = useState('');
+    const [degreeInfo, setDegreeInfo] = useState('');
+    const [nextEId, setNextEId] = useState(0);
+    const [educationItem, setEducationItem] = useState([{
+        id:nextEId,
+        college:'University of Somwhere, Town, State',
+        degree:'B.S Usefulness',
+    }]);
+
+    function handleCollegeInfoChange(e){
+        setCollegeInfo(e.target.value);
+    }
+    function handleDegreeInfoChange(e){
+        setDegreeInfo(e.target.value);
+    }
+    function handleAddEducationItem(){
+        if(collegeInfo.trim() !== '' && degreeInfo.trim() !== '') {
+            const newEducationItem = {
+                college:collegeInfo,
+                degree:degreeInfo
+            }
+            setEducationItem([...educationItem, newEducationItem]);
+            setNextEId(nextEId + 1);
+            setCollegeInfo('');
+            setDegreeInfo('');
+        }
+    }
+    function handleDeleteEItem(id){
+        setEducationItem(educationItem.filter(item => item.id !== id));
+    }
 
     return {
+        handleDeleteEItem,
+        nextEId,
+        setNextEId,
+        handleAddEducationItem,
+        handleCollegeInfoChange,
+        handleDegreeInfoChange,
+        collegeInfo,
+        setCollegeInfo,
+        educationItem,
+        setEducationItem,
+        degreeInfo,
+        setDegreeInfo,
         jobTitle,
         setJobTitle,
         jobDescription,
