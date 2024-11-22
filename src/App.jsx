@@ -4,6 +4,7 @@ import Header from './components/Header.jsx';
 import Experience from './components/Experience.jsx';
 import TopUI from './components/TopUI.jsx';
 import Education from './components/Education.jsx';
+import Skills from './components/Skills.jsx';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <Experience />
         <Education />
+        <Skills />
       </div>
     </UIProvider>
     </>

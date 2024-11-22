@@ -105,9 +105,9 @@ const useResumeUI = () => {
     // Function to add Education
     const [collegeInfo, setCollegeInfo] = useState('');
     const [degreeInfo, setDegreeInfo] = useState('');
-    const [nextEId, setNextEId] = useState(0);
+    const [nextEId, setNextEId] = useState(1);
     const [educationItem, setEducationItem] = useState([{
-        id:nextEId,
+        id:0,
         college:'University of Somwhere, Town, State',
         degree:'B.S Usefulness',
     }]);
@@ -121,6 +121,7 @@ const useResumeUI = () => {
     function handleAddEducationItem(){
         if(collegeInfo.trim() !== '' && degreeInfo.trim() !== '') {
             const newEducationItem = {
+                id:nextEId,
                 college:collegeInfo,
                 degree:degreeInfo
             }
@@ -134,7 +135,41 @@ const useResumeUI = () => {
         setEducationItem(educationItem.filter(item => item.id !== id));
     }
 
+    // Function to add skills
+    const [skill, setSkill] = useState('');
+    const [nextSkillId, setNextSkillId] = useState(1);
+    const [skillsItem, setSkillsItem] = useState([{
+        id:0,
+        skill:'Farming'
+    }]);
+
+    function handleSkillChange(e) {
+        setSkill(e.target.value);
+    }
+    function handleAddSkillsItem() {
+        if(skill.trim() !== '') {
+            const newSkillsItem = {
+                id:nextSkillId,
+                skill:skill
+            }
+            setSkillsItem([...skillsItem, newSkillsItem]);
+            setNextSkillId(nextSkillId + 1);
+            setSkill('');
+        }
+    }
+    function handleDeleteSItem(id) {
+        setSkillsItem(skillsItem.filter(item => item.id !== id));
+    }
+
     return {
+        handleDeleteSItem,
+        skill,
+        setSkill,
+        setNextSkillId,
+        skillsItem,
+        setSkillsItem,
+        handleSkillChange,
+        handleAddSkillsItem,
         handleDeleteEItem,
         nextEId,
         setNextEId,

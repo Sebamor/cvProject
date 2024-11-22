@@ -31,7 +31,7 @@ function Education() {
             
 
             <div style={{width:'80vw'}}>
-                <div id="experienceHeader" style={{
+                <div id="educationHeader" style={{
                     borderBottom:'2px solid black',
                     minWidth:'80vw',
                 }}>
@@ -83,7 +83,7 @@ function Education() {
                             }}/>
                     </div>
                     <div id="addCollegeItemButton" style={{display:hideUI}}>
-                        <button onClick={handleAddEducationItem} style={{display:hideUI,}}>Add Job</button>
+                        <button onClick={handleAddEducationItem} style={{display:hideUI,}}>Add Education</button>
                     </div>
                 </div>
                 <div id="educationFontColor" style={{display:'flex', justifyContent:'flex-end', alignItems:'center', gap:'20px'}}>
