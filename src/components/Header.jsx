@@ -91,7 +91,12 @@ function Header() {
 
                 <button className='hideUIButton' style={{display:hideUI}} onClick={() => handleFontChange('summary')}>Font Size</button>
 
-                <div id="summaryInfo" contentEditable='true' style={{color:itemColor.summary, fontSize:fontSize.summary}}>
+                <div id="summaryInfo" contentEditable='true' style={{
+                    color:itemColor.summary, 
+                    fontSize:fontSize.summary,
+                    width:'80%',
+                    textAlign:'center',
+                }}>
                     {user.summary}
                 </div>
 

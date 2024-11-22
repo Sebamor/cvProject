@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import  useResumeUI from '../hooks/resumeHooks.js';
 import { UIContext } from '../components/UIContext.jsx';
+import AddItems from '../components/AddItems.jsx';
 
 function Experience() {
     const {itemColor, handleColorChange, fontSize, handleFontChange} = useResumeUI();
@@ -43,8 +44,8 @@ function Experience() {
                         <div className="titleColorSelectorHideContainer" style={{display:hideUI}}>
                             <div className='titleColorSelectorContainer'>
                                 <div className="titleColorSelectorContainer">
-                                    <label htmlFor="colorSelector" style={{fontWeight:'800', display:'block '}}>Choose Color</label>
                                     <input type="color" id="colorSelector" name="colorSelector" onChange={(e) => handleColorChange('expHeader', e)}/>
+                                    <label htmlFor="colorSelector" style={{fontWeight:'800', display:'block '}}>Choose Color</label>
                                 </div>
                             </div>
                         </div>
@@ -53,8 +54,12 @@ function Experience() {
             </div>
 
 
-            <div id="experienceListContainer">
-                test
+            <div id="experienceListContainer" style={{minWidth:'80vw'}}>
+                <div id="experienceList" style={{
+                    textAlign:'center',
+                }}>
+                    <AddItems />
+                </div>
             </div>
         </div>
     )

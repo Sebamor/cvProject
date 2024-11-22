@@ -51,7 +51,77 @@ const useResumeUI = () => {
         setFontSize(newFonts);
     }
 
+    // Function to add items in experience component
+    const [jobTitle, setJobTitle] = useState('');
+    const [jobDescription, setJobDescription] = useState('');
+    const [jobRole, setJobRole] = useState('');
+    const [jobDate, setJobDate] = useState('');
+    const [jobLocation, setJobLocation] = useState('');
+    const [items, setItems] = useState([{id:'0', title:'Big Business', description:'Import and export',role:'CEO',location:'Somewhere, USA',date:'2012-2023'}]);
+    const [nextId, setNextId] = useState(0);
+
+    function handleJobTitleChange(e) {
+        setJobTitle(e.target.value);
+    }
+    function handleJobDescriptionChange(e) {
+        setJobDescription(e.target.value);  
+    }
+    function handleJobRoleChange(e) {
+        setJobRole(e.target.value);  
+    }
+    function handleJobLocationChange(e) {
+        setJobLocation(e.target.value);  
+    }
+    function handleJobDateChange(e) {
+        setJobDate(e.target.value);  
+    }
+
+
+    function handleAddItem() {
+        if(jobTitle.trim() !== '' && jobDescription.trim() !== '' && jobRole.trim() !== '' && jobDate.trim() !== '' && jobLocation.trim() !== '') {
+            const newItem = {
+                id: nextId,
+                title: jobTitle,
+                description: jobDescription,
+                role: jobRole,
+                location: jobLocation,
+                date: jobDate,
+            }
+
+            setItems([...items, newItem]);
+            setNextId(nextId + 1);
+            setJobTitle('');
+            setJobDescription('');
+            setJobRole('');
+            setJobLocation('');
+            setJobDate('');
+        }
+    }
+
+    function handleDeleteItem(id) {
+        setItems(items.filter(item => item.id !== id));
+    }
+    
+
     return {
+        jobTitle,
+        setJobTitle,
+        jobDescription,
+        setJobDescription,
+        jobRole,
+        jobDate,
+        jobLocation,
+        items,
+        setItems,
+        nextId,
+        setNextId,
+        handleJobTitleChange,
+        handleJobDescriptionChange,
+        handleAddItem,
+        handleDeleteItem,
+        handleJobDateChange,
+        handleJobLocationChange,
+        handleJobRoleChange,
         user,
         setUser,
         hideUI,
